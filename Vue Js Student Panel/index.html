@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Vue Students Panel</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha2/css/bootstrap.min.css" integrity="sha384-DhY6onE6f3zzKbjUPRc2hOzGAdEf4/Dz+WJwBvEYL/lkkIsI3ihufq9hk9K4lVoK" crossorigin="anonymous">
+
+</head>
+<body>
+
+  <div id="app" class="container-fluid mt-5 mx-2">
+    <div class="row">
+      <!-- Add Student Form -->
+      <div class="col-md-4 mb-3">
+        <h6 class="display-6">Add Student</h6>
+        <div class="mb-3">
+          <label for="name" class="form-label">Name</label>
+          <input type="text" class="form-control" id="name" placeholder="Your Name" v-model="addStudent.name">
+        </div>
+        <div class="mb-3">
+          <label for="adress" class="form-label">Your Adress</label>
+          <textarea class="form-control" id="adress" rows="3" v-model="addStudent.adress"></textarea>
+        </div>
+        <button class="btn btn-success btn-sm" v-on:click="addNewStudent()">Add Student</button>
+      </div>
+      <!-- Table -->
+      <div class="col-md-8">
+        <h6 class="display-6">Students Table</h6>
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th scope="col">Name</th>
+              <th scope="col">Adress</th>
+              <th scope="col">Manage</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr v-for="(student,index) in students">
+              <td>{{student.name}}</td>
+              <td>{{student.adress}}</td>
+              <td>
+                <button class="btn btn-sm btn-danger" @click="deleteStudent(index)">Delete</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+
+
+
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha2/js/bootstrap.bundle.min.js" integrity="sha384-BOsAfwzjNJHrJ8cZidOg56tcQWfp6y72vEJ8xQ9w6Quywb24iOsW913URv1IS4GD" crossorigin="anonymous">
+
+  </script>
+  <script src="console.js"></script>
+  <script>
+    var vConsole = new VConsole();
+  </script>
+  <script src="app.js"></script>
+  <script src="index.js"></script>
+
+</body>
+</html>

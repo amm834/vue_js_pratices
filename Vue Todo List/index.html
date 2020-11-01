@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Vue</title>
+  <style type="text/css" media="all">
+    ul {
+      list-style: none;
+    }
+    .done {
+      text-decoration: line-through;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="app">
+    <h1>To Do List ({{ todo }})</h1>
+    <form @submit.prevent="addItem">
+      <input v-model="newItem" />
+      <button v-bind:disabled="newItem.length == 0">Add List</button>
+    </form>
+    <ul>
+      <li v-for="(list,index) in lists">
+        <input type="checkbox" v-model="list.status">
+        <span :class="{done:list.status}">
+          {{list.name}}
+        </span>
+        <button @click="deleteItem()" v-if="list.status">Delete</button>
+      </li>
+    </ul>
+  </div>
+
+
+  <script src="console.js"></script>
+  <script>
+    var vConsole = new VConsole();
+  </script>
+  <script src="app.js"></script>
+  <script src="index.js"></script>
+
+</body>
+</html>
